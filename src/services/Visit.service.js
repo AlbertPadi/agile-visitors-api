@@ -24,7 +24,8 @@ class VisitService {
       const visit = {
         reasonVisit: newEntity.reasonVisit,
         userVisitorId: newEntity.visitor.id,
-        userReceiverId: newEntity.receiver.id
+        userReceiverId: newEntity.receiver.id,
+        substationId: newEntity.visitor.substationId,
       }
 
       const entityCreated = await Visit.create(visit);
@@ -39,7 +40,7 @@ class VisitService {
 
     try {
       const { rows } = await Visit.findAndCountAll({
-        include: ['visitor', 'receiver'],
+        include: ['visitor', 'receiver', 'substation'],
         ...criterions
          });
       return { rows, count: rows.length };
