@@ -5,13 +5,14 @@ class VisitService {
 
   static async create(params) {
     let { newEntity } = params;
+    const substationId = newEntity.visitor.substationId
 
     const visitor = await User.findOne({ where: { code: newEntity.visitor.code } });
     if (!visitor) {
       newEntity.visitor = await userService.create({ newEntity: newEntity.visitor });
-    } else[
+    } else{
       newEntity.visitor.id = visitor.id
-    ]
+    }
 
     const receiver = await User.findOne({ where: { code: newEntity.receiver.code } });
     if (!receiver) {
@@ -19,13 +20,13 @@ class VisitService {
     } else[
       newEntity.receiver.id = receiver.id
     ]
-
+    console.log(newEntity.visitor.substationId)
     try {
       const visit = {
         reasonVisit: newEntity.reasonVisit,
         userVisitorId: newEntity.visitor.id,
         userReceiverId: newEntity.receiver.id,
-        substationId: newEntity.visitor.substationId,
+        substationId: substationId,
       }
 
       const entityCreated = await Visit.create(visit);
