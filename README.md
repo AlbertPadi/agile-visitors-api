@@ -1,6 +1,6 @@
 # Agile Visitors API
 
-API for application that registers visiting employees.
+API for the application that registers visiting employees.
 
 # Table of content
 
@@ -24,7 +24,7 @@ Now copy and rename the `.env.example` file.
 $ cp .env.example .env
 ```
 
-By default the project is ready for using with docker
+By default, the project is ready for use with docker
 
 ```bash
 $ docker-compose up -d postgres
@@ -32,11 +32,11 @@ $ docker-compose up -d postgres
 $ docker-compose up -d agile-visitors-api
 ```
 
-Now you have now the API running in `http://localhost:5000/api` or `http://local.agile-visitors.api/api`
+Now you have the API running in `http://localhost:5000/api` or `http://local.agile-visitors.api/api`
 
 # ENV file
 
-The `env` file contains a series of variables that modify the behavior of the api.
+The `env` file contains a series of variables that modify the behavior of the API.
 
 ```text
 # API
@@ -102,13 +102,13 @@ This search for `some` in `reasonVisit` column.
 
 **Limit and offset**
 
-You can use `limit` and `offset` for paginate.
+You can use `limit` and `offset` for pagination.
 
 ```
 api/visits?limit=10&page=2
 ```
 
-This example return the records between 11 to 20
+This example returns the records between 11 to 20
 
 **Order**
 
@@ -119,3 +119,7 @@ api/visits?sort=-created_at
 ```
 
 More information: [https://github.com/perbert27/sequelize-querystring-converter](https://github.com/perbert27/sequelize-querystring-converter)
+
+# License
+
+This project uses the following license: [MIT](<https://choosealicense.com/licenses/mit/>)

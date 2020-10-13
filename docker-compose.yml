@@ -16,7 +16,7 @@ services:
       - traefik-network
   
   postgres:
-    image: postgres
+    image: postgres:12
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
